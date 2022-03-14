@@ -1,0 +1,51 @@
+
+.overall {
+    background-color: gray;
+    color: white;
+}
+
+
+.navbar {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.ride {
+    display:flex;
+    list-style-type: none;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-start;
+    width:100%;
+    height: 4rem;
+       
+}
+
+.rideList1:hover {
+        cursor: pointer;
+}
+.rideList1:active {
+    border-bottom: 2px solid white;
+}
+
+.rideList2:active {
+    border-bottom: 2px solid white;
+}
+.rideList3:active {
+    border-bottom: 2px solid white;
+}
+
+.rideList4:active {
+    border-bottom: 2px solid white;
+}
+
+.rideList2:hover {
+    cursor: pointer;
+}
+.rideList3:hover {
+    cursor: pointer;
+}
+.rideList4:hover {
+    cursor: pointer;
+}

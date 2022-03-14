@@ -1,0 +1,42 @@
+
+.header {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: white;
+    height: 5.25rem;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+.user {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.figure {
+    border-radius: 50%;
+    border: 2px solid red;
+    height: 30px;
+    object-fit: cover;
+}
+
+.edvora {
+    width: 7.125rem;
+    height: 2.6875rem;
+    line-height: 2.685rem;
+    font-weight: 700;
+    font-size: 2.25rem;
+    font-family: SFProDisplay;
+    margin-top: 1.3125rem;
+    margin-left: 2.6875rem;
+}
+
+
+
