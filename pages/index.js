@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import Header from './header';
+import Header from '../components/header';
 import styles from '../styles/navbar.module.css';
 import Link from 'next/link'
 import Location from '../components/location';
 import Upcoming from '../components/upcoming';
 import Past from '../components/past'
+import City from '../components/filter'
 
-export default function Home({dataFilter, upcomingFilter, pastFilter}) {
+export default function Home({dataFilter, upcomingFilter, pastFilter,statesFilter, citiesFilter}) {
 
 const [currentNav, setCurrentNav] = useState("nearest")
 
@@ -31,6 +32,10 @@ const onPastHandler = () => {
   setCurrentNav("past")
   
 }
+
+const onFilterHandler = () => {
+  setCurrentNav("city")
+}
   return (
     <div  className={styles.overall}>
       <Head>
@@ -47,10 +52,17 @@ k        <link rel="icon" href="/favicon.ico" />
         {/* Navbar */}
         <nav className={styles.navbar}>
           <ul className={styles.ride}>
-            <li onClick={onNearestHandler} className={styles.rideList1}>Nearest Ride</li>
-            <li onClick={onUpcomingHandler} className={styles.rideList1}>Upcoming rides (4)</li>
-            <li onClick={onPastHandler} className={styles.rideList1}>Past rides(2)</li>
-            <li><Link href="/filter"><a>Filters</a></Link></li>
+            <div className={styles.flexRide}>
+
+            <li onClick={onNearestHandler} className={`styles.rideList1  ${currentNav === "nearest" ? styles.active : ""}`}>Nearest Ride</li>
+            <li onClick={onUpcomingHandler} className={`styles.rideList1 ${currentNav === "upcoming" ? styles.active : ""}`}>Upcoming rides (4)</li>
+            <li onClick={onPastHandler} className={`styles.rideList1 ${currentNav === "past" ? styles.active : ""}`}>Past rides(2)</li>  
+              </div>
+            
+            <div>
+            <li className={styles.filterSelf} onClick={onFilterHandler} >Filters</li>
+
+            </div>
 
           </ul>
         </nav>
@@ -60,7 +72,8 @@ k        <link rel="icon" href="/favicon.ico" />
         {currentNav === "upcoming" ? <Upcoming upcomingFilter={upcomingFilter}/> : ""}
 
         {currentNav === "past" ? <Past pastFilter={pastFilter}/> : ""}
-         
+
+        {currentNav === "city" ? <City citiesFilter={citiesFilter} statesFilter={statesFilter}/> : ""}
 
         </main>
 
@@ -90,11 +103,15 @@ export async function getServerSideProps () {
 
   const pastFilter = rides.filter((ride) => ( new Date() > new Date(ride.date)) ) 
   
-   
+  const  statesFilter = rides.map(ride => ride.state);
+  const citiesFilter = rides.map(ride => ride.city)
+
 
   return {props : {
        dataFilter,
       upcomingFilter,
-      pastFilter
+      pastFilter,
+      statesFilter,
+      citiesFilter
       }}
 }

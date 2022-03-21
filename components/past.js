@@ -9,8 +9,8 @@ const PastRides = ({pastFilter}) => {
 
     const listItems = pastFilter.map((datas, index)=> 
         <div key={index} className={styles.location}>
-                <section>
-        <Image src="/200" loader={myLoader} width={300} height={300} />
+                <section className={styles.img}>
+        <Image src="/200" loader={myLoader} width={400} height={240} />
                 </section>
 
                 <section>

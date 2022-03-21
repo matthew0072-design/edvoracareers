@@ -27,7 +27,7 @@ export default function Header({userName}){
 <div className={styles.user}> 
 <p>kierran Patterson</p>
                 <figure className={styles.figure}>
-                <Image src="/200" loader={myLoader} width={20} height={20} objectFit="cover" />
+                <Image src="/4272" loader={myLoader} width={30} height={40} objectFit="cover"/>
                 </figure>
 </div>
 </header>

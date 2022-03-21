@@ -1,3 +1,4 @@
+
 .location {
     background-color: black;
     display:grid;
@@ -13,7 +14,7 @@
 }
 
 .img {
-    
-    top: 30px;
-    border-radius: 5px;
+    margin:10px;
+    box-sizing: content-box;   
+    border-radius: 20px;
 }

@@ -14,7 +14,7 @@ const Location = ({dataFilter}) => {
     const listItems = dataFilter.map((datas, index)=> 
         <div key={index} className={styles.location}>
                 <section className={styles.img}>
-        <Image src="/200" loader={myLoader} width={400} height={500} />
+        <Image src="/200" loader={myLoader} width={400} height={240} />
                 </section>
 
                 <section>
